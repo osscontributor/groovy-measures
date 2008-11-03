@@ -4,6 +4,7 @@ import javax.measure.Measure
 import javax.measure.unit.SI
 
 class MeasureMixin {
+    
     static def getKilometers(Measure self) {
         self.doubleValue(SI.KILO(SI.METER))
     }
@@ -26,5 +27,12 @@ class MeasureMixin {
 
     static def getMicrometers(Measure self) {
         self.doubleValue(SI.MICRO(SI.METER))
+    }
+    
+    static def plus(Measure self, Measure other) {
+        // TODO there must be something in JScience to support adding Measures...
+        def selfInMeters = self.doubleValue(SI.METER)
+        def otherInMeters = other.doubleValue(SI.METER)
+        Measure.valueOf(selfInMeters + otherInMeters, SI.METER)
     }
 }
