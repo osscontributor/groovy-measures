@@ -5,7 +5,7 @@ class DistanceTests extends GroovyTestCase {
     void setUp() {
         Class.forName 'com.g2one.groovy.measures.GroovyMeasures'
     }
-    
+
     void testConversions() {
         def len = 2.kilometers
         assertEquals 2.0,    len.kilometers,  0.00001
