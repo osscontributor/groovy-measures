@@ -1,0 +1,41 @@
+srcDir = 'src/main/groovy'
+testSrcDir = 'src/test/groovy'
+targetDir = 'build'
+buildDir = "$targetDir/classes"
+testBuildDir = "$targetDir/test-classes"
+testReportsDir = "$targetDir/test-reports"
+includeTargets << gant.targets.Clean
+cleanPattern << [ '**/*~' ,  '**/*.bak' ]
+cleanDirectory << targetDir
+
+ant.path(id: 'projClasspath') {
+    fileset(dir: "lib/") {
+        include(name: '*.jar')
+    }
+    pathelement location: buildDir
+}
+
+target (compile: 'Compiles all source') {
+    mkdir dir: buildDir
+    ant.groovyc srcdir: srcDir, destdir: buildDir, classpathRef: 'projClasspath'
+}
+
+target (compile_tests: 'Compiles the tests') {
+    depends compile
+    mkdir dir: testBuildDir
+    ant.groovyc srcdir: testSrcDir, destdir: testBuildDir
+}
+
+target (test: 'Run the unit tests') {
+    depends compile_tests
+    mkdir dir: testReportsDir
+    junit ( printsummary : 'yes' , failureproperty : 'testsFailed' , fork : 'true' ) {
+        formatter ( type : 'plain' )
+        batchtest ( todir : testReportsDir ) { fileset ( dir : testBuildDir , includes : '**/*Tests.class' ) }
+        classpath {
+            path refid: 'projClasspath'
+            pathelement location: testBuildDir 
+        }
+    }
+}
+setDefaultTarget compile
