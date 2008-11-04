@@ -35,4 +35,11 @@ class MeasureMixin {
         def otherInMeters = other.doubleValue(SI.METER)
         Measure.valueOf(selfInMeters + otherInMeters, SI.METER)
     }
+    
+    static def minus(Measure self, Measure other) {
+        // TODO there must be something in JScience to support subtracting Measures...
+        def selfInMeters = self.doubleValue(SI.METER)
+        def otherInMeters = other.doubleValue(SI.METER)
+        Measure.valueOf(selfInMeters - otherInMeters, SI.METER)
+    }
 }

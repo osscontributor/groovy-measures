@@ -24,10 +24,16 @@ class DistanceTests extends GroovyTestCase {
         assertEquals 4.0E9,  len2.nanometers
     }
     
-    void testAdding() {
+    void testAddition() {
         def distance = 9.meters + 200.centimeters
         assertEquals 1100, distance.centimeters
         assertEquals 11, distance.meters
+    }
+    
+    void testSubtraction() {
+        def result = 9.meters - 200.centimeters
+        assertEquals 700, result.centimeters
+        assertEquals 7, result.meters
     }
     
     void testComparisons() {
