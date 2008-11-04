@@ -36,6 +36,11 @@ class DistanceTests extends GroovyTestCase {
         assertEquals 7, result.meters
     }
     
+    void testMultiplication() {
+        def result = 5.meters * 4
+        assertEquals 20, result.meters
+    }
+    
     void testComparisons() {
         assertEquals 9.0.kilometers, 9.0E3.meters
         assertEquals 9.0E3.meters, 9.0E5.centimeters
