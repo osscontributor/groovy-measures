@@ -29,4 +29,12 @@ class DistanceTests extends GroovyTestCase {
         assertEquals 1100, distance.centimeters
         assertEquals 11, distance.meters
     }
+    
+    void testComparisons() {
+        assertEquals 9.0.kilometers, 9.0E3.meters
+        assertEquals 9.0E3.meters, 9.0E5.centimeters
+        assertEquals 9.0E5.centimeters, 9.0E6.millimeters
+        assertEquals 9.0E6.millimeters, 9.0E9.micrometers
+        assertEquals 9.0E9.micrometers, 9.0E12.nanometers
+    }
 }
