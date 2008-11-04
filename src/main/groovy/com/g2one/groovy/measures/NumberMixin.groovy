@@ -28,5 +28,10 @@ class NumberMixin {
     static def getNanometers(Number self) {
         Measure.valueOf(self, SI.NANO(SI.METER))
     }
+    
+    static def multiply(Number self, Measure measure) {
+        def measureInMeters = measure.doubleValue(SI.METER)
+        Measure.valueOf(measureInMeters * self, SI.METER)
+    }
 
 }
