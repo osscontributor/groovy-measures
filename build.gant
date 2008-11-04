@@ -7,12 +7,18 @@ testReportsDir = "$targetDir/test-reports"
 includeTargets << gant.targets.Clean
 cleanPattern << [ '**/*~' ,  '**/*.bak' ]
 cleanDirectory << targetDir
+distJar = "$targetDir/groovy-measures_0.1-SNAPSHOT.jar"
 
 ant.path(id: 'projClasspath') {
     fileset(dir: "lib/") {
         include(name: '*.jar')
     }
     pathelement location: buildDir
+}
+
+target (jar: 'Build a jar file') {
+    depends compile
+    ant.jar ( destfile: distJar, basedir: buildDir )
 }
 
 target (compile: 'Compiles all source') {
