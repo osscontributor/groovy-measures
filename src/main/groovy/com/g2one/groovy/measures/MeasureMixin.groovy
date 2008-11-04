@@ -42,4 +42,9 @@ class MeasureMixin {
         def otherInMeters = other.doubleValue(SI.METER)
         Measure.valueOf(selfInMeters - otherInMeters, SI.METER)
     }
+    
+    static def multiply(Measure self, Number number) {
+        def selfInMeters = self.doubleValue(SI.METER)
+        Measure.valueOf(selfInMeters * number, SI.METER)
+    }
 }
