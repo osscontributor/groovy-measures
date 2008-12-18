@@ -1,0 +1,14 @@
+The groovy-measures project aims to bring a measures DSL to
+Groovy.  The library provides capability to do things like:
+
+def length = 2.kilometers
+def lengthInInches = length.inches
+
+See the tests under src/test/groovy/ for examples of supported
+behavior.
+
+As the project matures, more capability will be added.  If there
+is a feature you would like to see, please drop me a note at
+jeff@jeffandbetsy.net.
+
+
