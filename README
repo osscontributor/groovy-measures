@@ -7,6 +7,16 @@ def lengthInInches = length.inches
 See the tests under src/test/groovy/ for examples of supported
 behavior.
 
+TO use groovy-measures you need to add the groovy-measures jar
+file to your CLASSPATH and load the com.g2one.groovy.measures.GroovyMeasures
+class, like this:
+
+Class.forName 'com.g2one.groovy.measures.GroovyMeasures'
+
+That class must be loaded early in the process as none of the capabilities
+provided by the library are available until your application loads the
+GroovyMeasures class.
+
 As the project matures, more capability will be added.  If there
 is a feature you would like to see, please drop me a note at
 jeff@jeffandbetsy.net.
