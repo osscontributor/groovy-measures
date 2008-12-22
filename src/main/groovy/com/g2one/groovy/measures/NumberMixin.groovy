@@ -9,7 +9,19 @@ class NumberMixin {
     static def getMiles(Number self) {
         Measure.valueOf(self, NonSI.MILE)
     }
+
+    static def getYards(Number self) {
+        Measure.valueOf(self, NonSI.YARD)
+    }
     
+    static def getFeet(Number self) {
+        Measure.valueOf(self, NonSI.FOOT)
+    }
+
+    static def getInches(Number self) {
+        Measure.valueOf(self, NonSI.INCH)
+    }
+
     static def getKilometers(Number self) {
         Measure.valueOf(self, SI.KILO(SI.METER))
     }

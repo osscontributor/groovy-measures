@@ -6,7 +6,7 @@ class DistanceTests extends GroovyTestCase {
         Class.forName 'com.g2one.groovy.measures.GroovyMeasures'
     }
 
-    void testMetricConversions() {
+    void testRetrievingMetricValues() {
         def len = 2.kilometers
         assertEquals 2.0,     len.kilometers
         assertEquals 2.0E3,   len.meters
@@ -24,11 +24,18 @@ class DistanceTests extends GroovyTestCase {
         assertEquals 4.0E9,    len2.nanometers
     }
 
-    void testImperialConversions() {
+    void testRetrievingImperialValues() {
         def len = 5.miles
+        assertEquals 5, len.miles
         assertEquals 8800, len.yards
         assertEquals 26400, len.feet
         assertEquals 316800, len.inches
+    }
+
+    void testImperialConversions() {
+        assertEquals 5.miles, 8800.yards
+        assertEquals 8800.yards, 26400.feet
+        assertEquals 26400.feet, 316800.inches
     }
     
     void testAddition() {
