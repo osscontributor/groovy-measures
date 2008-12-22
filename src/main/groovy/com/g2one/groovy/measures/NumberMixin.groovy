@@ -6,47 +6,47 @@ import javax.measure.unit.NonSI
 
 class NumberMixin {
 
-    static def getMiles(Number self) {
+    static getMiles(Number self) {
         Measure.valueOf(self, NonSI.MILE)
     }
 
-    static def getYards(Number self) {
+    static getYards(Number self) {
         Measure.valueOf(self, NonSI.YARD)
     }
     
-    static def getFeet(Number self) {
+    static getFeet(Number self) {
         Measure.valueOf(self, NonSI.FOOT)
     }
 
-    static def getInches(Number self) {
+    static getInches(Number self) {
         Measure.valueOf(self, NonSI.INCH)
     }
 
-    static def getKilometers(Number self) {
+    static getKilometers(Number self) {
         Measure.valueOf(self, SI.KILO(SI.METER))
     }
 
-    static def getMeters(Number self) {
+    static getMeters(Number self) {
         Measure.valueOf(self, SI.METER)
     }
     
-    static def getCentimeters(Number self) {
+    static getCentimeters(Number self) {
         Measure.valueOf(self, SI.CENTI(SI.METER))
     }
     
-    static def getMillimeters(Number self) {
+    static getMillimeters(Number self) {
         Measure.valueOf(self, SI.MILLI(SI.METER))
     }
     
-    static def getMicrometers(Number self) {
+    static getMicrometers(Number self) {
         Measure.valueOf(self, SI.MICRO(SI.METER))
     }
     
-    static def getNanometers(Number self) {
+    static getNanometers(Number self) {
         Measure.valueOf(self, SI.NANO(SI.METER))
     }
     
-    static def multiply(Number self, Measure measure) {
+    static multiply(Number self, Measure measure) {
         def measureInMeters = measure.doubleValue(SI.METER)
         Measure.valueOf(measureInMeters * self, SI.METER)
     }
