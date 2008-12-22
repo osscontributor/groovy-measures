@@ -6,6 +6,10 @@ import javax.measure.unit.NonSI
 
 class NumberMixin {
 
+    static getFurlongs(Number self) {
+        Measure.valueOf(self * 220, NonSI.YARD)
+    }
+    
     static getMiles(Number self) {
         Measure.valueOf(self, NonSI.MILE)
     }

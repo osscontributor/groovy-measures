@@ -33,6 +33,10 @@ class MeasureMixin {
     static getMiles(Measure self) {
         self.doubleValue(NonSI.MILE)
     }
+
+    static getFurlongs(Measure self) {
+        self.doubleValue(NonSI.YARD) / 220
+    }
     
     static getYards(Measure self) {
         self.doubleValue(NonSI.YARD)

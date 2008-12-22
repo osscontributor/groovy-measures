@@ -35,15 +35,17 @@ class DistanceTests extends GroovyTestCase {
     void testRetrievingImperialValues() {
         def len = 5.miles
         assertEquals 5,      len.miles
+        assertEquals 40,     len.furlongs
         assertEquals 8800,   len.yards
         assertEquals 26400,  len.feet
         assertEquals 316800, len.inches
     }
 
     void testImperialConversions() {
-        assertEquals 5.miles,    8800.yards
-        assertEquals 8800.yards, 26400.feet
-        assertEquals 26400.feet, 316800.inches
+        assertEquals 5.miles,     40.furlongs
+        assertEquals 40.furlongs, 8800.yards
+        assertEquals 8800.yards,  26400.feet
+        assertEquals 26400.feet,  316800.inches
     }
     
     void testAddition() {
