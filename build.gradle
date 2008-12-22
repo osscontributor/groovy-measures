@@ -12,9 +12,3 @@ dependencies {
 }
 
 compile.unmanagedClasspath ( ['lib/jscience.jar'] )
-
-classes = dir('build/classes')
-
-compile.dependsOn classes
-
-
