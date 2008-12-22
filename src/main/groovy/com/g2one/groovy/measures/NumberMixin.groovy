@@ -2,9 +2,14 @@ package com.g2one.groovy.measures
 
 import javax.measure.Measure
 import javax.measure.unit.SI
+import javax.measure.unit.NonSI
 
 class NumberMixin {
 
+    static def getMiles(Number self) {
+        Measure.valueOf(self, NonSI.MILE)
+    }
+    
     static def getKilometers(Number self) {
         Measure.valueOf(self, SI.KILO(SI.METER))
     }

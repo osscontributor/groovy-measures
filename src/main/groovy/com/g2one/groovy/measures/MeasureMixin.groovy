@@ -2,6 +2,7 @@ package com.g2one.groovy.measures
 
 import javax.measure.Measure
 import javax.measure.unit.SI
+import javax.measure.unit.NonSI
 
 class MeasureMixin {
     
@@ -29,6 +30,22 @@ class MeasureMixin {
         self.doubleValue(SI.MICRO(SI.METER))
     }
     
+    static def getMiles(Measure self) {
+        self.doubleValue(NonSI.MILE)
+    }
+    
+    static def getYards(Measure self) {
+        self.doubleValue(NonSI.YARD)
+    }
+
+    static def getFeet(Measure self) {
+        self.doubleValue(NonSI.FOOT)
+    }
+
+    static def getInches(Measure self) {
+        self.doubleValue(NonSI.INCH)
+    }
+
     static def plus(Measure self, Measure other) {
         // TODO there must be something in JScience to support adding Measures...
         def selfInMeters = self.doubleValue(SI.METER)
