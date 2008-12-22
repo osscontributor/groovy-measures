@@ -228,7 +228,7 @@
   <component name="libraryTable">
     <library name="jscience">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/lib/jscience.jar!/" />
+        <root url="jar://$PROJECT_DIR$/lib/jscience-4.3.1.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
