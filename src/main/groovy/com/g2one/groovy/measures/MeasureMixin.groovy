@@ -5,7 +5,23 @@ import javax.measure.unit.SI
 import javax.measure.unit.NonSI
 
 class MeasureMixin {
+
+    static getSeconds(Measure self) {
+        self.doubleValue(NonSI.MINUTE) * 60
+    }
     
+    static getMinutes(Measure self) {
+        self.doubleValue(NonSI.MINUTE)
+    }
+
+    static getHours(Measure self) {
+        self.doubleValue(NonSI.HOUR)
+    }
+
+    static getDays(Measure self) {
+        self.doubleValue(NonSI.DAY)
+    }
+
     static getKilometers(Measure self) {
         self.doubleValue(SI.KILO(SI.METER))
     }

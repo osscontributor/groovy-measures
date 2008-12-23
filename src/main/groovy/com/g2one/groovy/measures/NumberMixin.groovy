@@ -6,6 +6,22 @@ import javax.measure.unit.NonSI
 
 class NumberMixin {
 
+    static getDays(Number self) {
+        Measure.valueOf(self, NonSI.DAY)
+    }
+
+    static getHours(Number self) {
+        Measure.valueOf(self, NonSI.HOUR)
+    }
+
+    static getMinutes(Number self) {
+        Measure.valueOf(self, NonSI.MINUTE)
+    }
+
+    static getSeconds(Number self) {
+        Measure.valueOf(self / 60, NonSI.MINUTE)
+    }
+
     static getFurlongs(Number self) {
         Measure.valueOf(self * 220, NonSI.YARD)
     }
