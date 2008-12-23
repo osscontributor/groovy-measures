@@ -9,5 +9,6 @@ class GroovyMeasures {
         Number.mixin NumberTimeMixin
         Measure.mixin MeasureDistanceMixin
         Measure.mixin MeasureTimeMixin
+        Measure.mixin MeasureMathMixin
     }
 }

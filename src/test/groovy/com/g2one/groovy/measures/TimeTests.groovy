@@ -21,4 +21,24 @@ class TimeTests extends GroovyTestCase {
         assertEquals 48.0, time.hours
         assertEquals 2.0, time.days
     }
+
+    void testAddition() {
+        def result = 120.minutes + 3.hours
+        assertEquals 5, result.hours
+    }
+
+    void testSubtraction() {
+        def result = 2.days - 16.hours
+        assertEquals 32, result.hours
+    }
+
+    void testMultiplication() {
+        def result = 24.hours * 2
+        assertEquals 2, result.days
+    }
+
+    void testDivision() {
+        def result = 2.days / 60
+        assertEquals 48, result.minutes
+    }
 }

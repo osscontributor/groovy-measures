@@ -29,7 +29,7 @@ class MeasureDistanceMixin {
     static getMicrometers(Measure self) {
         self.doubleValue(SI.MICRO(SI.METER))
     }
-    
+
     static getMiles(Measure self) {
         self.doubleValue(NonSI.MILE)
     }
@@ -37,7 +37,7 @@ class MeasureDistanceMixin {
     static getFurlongs(Measure self) {
         self.doubleValue(NonSI.YARD) / 220
     }
-    
+
     static getYards(Measure self) {
         self.doubleValue(NonSI.YARD)
     }
@@ -50,27 +50,4 @@ class MeasureDistanceMixin {
         self.doubleValue(NonSI.INCH)
     }
 
-    static plus(Measure self, Measure other) {
-        // TODO there must be something in JScience to support adding Measures...
-        def selfInMeters = self.doubleValue(SI.METER)
-        def otherInMeters = other.doubleValue(SI.METER)
-        Measure.valueOf(selfInMeters + otherInMeters, SI.METER)
-    }
-    
-    static minus(Measure self, Measure other) {
-        // TODO there must be something in JScience to support subtracting Measures...
-        def selfInMeters = self.doubleValue(SI.METER)
-        def otherInMeters = other.doubleValue(SI.METER)
-        Measure.valueOf(selfInMeters - otherInMeters, SI.METER)
-    }
-    
-    static multiply(Measure self, Number number) {
-        def selfInMeters = self.doubleValue(SI.METER)
-        Measure.valueOf(selfInMeters * number, SI.METER)
-    }
-    
-    static div(Measure self, Number number) {
-        def selfInMeters = self.doubleValue(SI.METER)
-        Measure.valueOf(selfInMeters / number, SI.METER)
-    }
 }
