@@ -6,10 +6,13 @@ import javax.measure.unit.SI
 
 public class MeasureMathMixin {
 
+    static isTime(Measure self) {
+        self.unit in [NonSI.MINUTE, NonSI.HOUR, NonSI.DAY]
+    }
+
     static plus(Measure self, Measure other) {
         // TODO there must be something in JScience to support adding Measures...
-        def unit = self.unit
-        if (unit in [NonSI.MINUTE, NonSI.HOUR, NonSI.DAY]) {
+        if (self.isTime()) {
             def selfInMinutes = self.doubleValue(NonSI.MINUTE)
             def otherInMinutes = other.doubleValue(NonSI.MINUTE)
             return Measure.valueOf(selfInMinutes + otherInMinutes, NonSI.MINUTE)
@@ -22,8 +25,7 @@ public class MeasureMathMixin {
 
     static minus(Measure self, Measure other) {
         // TODO there must be something in JScience to support subtracting Measures...
-        def unit = self.unit
-        if (unit in [NonSI.MINUTE, NonSI.HOUR, NonSI.DAY]) {
+        if (self.isTime()) {
             def selfInMinutes = self.doubleValue(NonSI.MINUTE)
             def otherInMinutes = other.doubleValue(NonSI.MINUTE)
             return Measure.valueOf(selfInMinutes - otherInMinutes, NonSI.MINUTE)
@@ -35,8 +37,7 @@ public class MeasureMathMixin {
     }
 
     static multiply(Measure self, Number number) {
-        def unit = self.unit
-        if (unit in [NonSI.MINUTE, NonSI.HOUR, NonSI.DAY]) {
+        if (self.isTime()) {
             def selfInMinutes = self.doubleValue(NonSI.MINUTE)
             return Measure.valueOf(selfInMinutes * number, NonSI.MINUTE)
         } else {
@@ -46,8 +47,7 @@ public class MeasureMathMixin {
     }
 
     static div(Measure self, Number number) {
-        def unit = self.unit
-        if (unit in [NonSI.MINUTE, NonSI.HOUR, NonSI.DAY]) {
+        if (self.isTime()) {
             def selfInMinutes = self.doubleValue(NonSI.MINUTE)
             return Measure.valueOf(selfInMinutes / number, NonSI.MINUTE)
         } else {
