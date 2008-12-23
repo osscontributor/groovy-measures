@@ -22,6 +22,10 @@ class NumberMixin {
         Measure.valueOf(self / 60, NonSI.MINUTE)
     }
 
+    static getMilliseconds(Number self) {
+        Measure.valueOf(self / 60000, NonSI.MINUTE)
+    }
+
     static getFurlongs(Number self) {
         Measure.valueOf(self * 220, NonSI.YARD)
     }

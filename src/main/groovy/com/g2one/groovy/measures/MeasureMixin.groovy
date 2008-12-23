@@ -6,10 +6,14 @@ import javax.measure.unit.NonSI
 
 class MeasureMixin {
 
+    static getMilliseconds(Measure self) {
+        self.doubleValue(NonSI.MINUTE) * 60000
+    }
+
     static getSeconds(Measure self) {
         self.doubleValue(NonSI.MINUTE) * 60
     }
-    
+
     static getMinutes(Measure self) {
         self.doubleValue(NonSI.MINUTE)
     }
