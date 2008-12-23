@@ -1,30 +1,10 @@
 package com.g2one.groovy.measures
 
 import javax.measure.Measure
-import javax.measure.unit.SI
 import javax.measure.unit.NonSI
+import javax.measure.unit.SI
 
-class MeasureMixin {
-
-    static getMilliseconds(Measure self) {
-        self.doubleValue(NonSI.MINUTE) * 60000
-    }
-
-    static getSeconds(Measure self) {
-        self.doubleValue(NonSI.MINUTE) * 60
-    }
-
-    static getMinutes(Measure self) {
-        self.doubleValue(NonSI.MINUTE)
-    }
-
-    static getHours(Measure self) {
-        self.doubleValue(NonSI.HOUR)
-    }
-
-    static getDays(Measure self) {
-        self.doubleValue(NonSI.DAY)
-    }
+class MeasureDistanceMixin {
 
     static getKilometers(Measure self) {
         self.doubleValue(SI.KILO(SI.METER))

@@ -5,7 +5,9 @@ import javax.measure.Measure
 class GroovyMeasures {
 
     static {
-        Number.mixin NumberMixin
-        Measure.mixin MeasureMixin
+        Number.mixin NumberDistanceMixin
+        Number.mixin NumberTimeMixin
+        Measure.mixin MeasureDistanceMixin
+        Measure.mixin MeasureTimeMixin
     }
 }
